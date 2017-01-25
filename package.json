@@ -1,0 +1,20 @@
+{
+  "name": "iromi",
+  "version": "0.0.1",
+  "description": "Collection of Sass colour functions that handle the heavy lifting for selecting beautiful and accessible colours",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/corygibbons/iromi.git"
+  },
+  "author": "Cory Gibbons <hello@corygibbons.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/corygibbons/iro/issues"
+  },
+  "keywords": [
+    "sass",
+    "color",
+    "colour",
+    "typography"
+  ]
+}

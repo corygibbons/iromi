@@ -1,0 +1,42 @@
+
+@function iromi_type($background, $prominence: 'default') {
+
+  // Darken
+  @if luminance($background) >= 0.25 {
+    $adjusted_lightness: '';
+
+    @if $prominence == 'less' {
+      $adjusted_lightness: scale-color($background, $lightness: -50%);
+
+    } @else if $prominence == 'more' {
+      $adjusted_lightness: scale-color($background, $lightness: -90%);
+
+    } @else {
+      $adjusted_lightness: scale-color($background, $lightness: -70%);
+    }
+
+    $usable_value: 100 - (luminance($background) * 100);
+
+    @return change-color($adjusted_lightness, $saturation: $usable_value);
+
+
+  // Lighten
+  } @else {
+    $adjusted_lightness: '';
+
+    @if $prominence == 'less' {
+      $adjusted_lightness: 85%;
+
+    } @else if $prominence == 'more' {
+      $adjusted_lightness: 98%;
+
+    } @else {
+      $adjusted_lightness: 90%;
+
+    }
+
+    @return change-color($background, $lightness: $adjusted_lightness);
+
+  }
+
+}
