@@ -1,0 +1,68 @@
+-
+  if (tile_lightness_increment <= 20) {
+    var lightness_steps = Math.floor((100/tile_lightness_increment) - 1);
+  } else {
+    var lightness_steps = Math.floor((100/tile_lightness_increment));
+  }
+  var total_tiles = ((360 / tile_degree_increment) * lightness_steps) + 1;
+
+doctype
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    title Iromi
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel='stylesheet', href='testing/dest/index.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Roboto:400,700')
+
+
+  body
+
+    .header
+      .heading__colour
+        h2 Background
+      .headings__prominence
+        h2 Less Prominence
+        h2 Default
+        h2 More Prominence
+
+    .colours
+
+      - for (var i = 1; i < total_tiles; ++i)
+
+        div(class="container tile" + i)
+
+          .colour__data
+            .colour__value.hue
+              h6 Hue:
+            .colour__value.sat
+              h6 Saturation:
+            .colour__value.light
+              h6 Lightness:
+            .colour__value.lum
+              h6 Luminance:
+
+          .iromi__data
+            .prominence_col.less
+              .value.contrast
+                h3 Contrast
+              .value.sat
+                h3 Sat
+              .value.light
+                h3 Lightness
+            .prominence_col.default
+              .value.contrast
+                h3 Contrast
+              .value.sat
+                h3 Sat
+              .value.light
+                h3 Lightness
+            .prominence_col.more
+              .value.contrast
+                h3 Contrast
+              .value.sat
+                h3 Sat
+              .value.light
+                h3 Lightness

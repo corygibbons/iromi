@@ -1,0 +1,277 @@
+@import '../../node_modules/normalize.css/normalize.css';
+@import '../../iromi';
+@import 'tokens.json';
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: 'Roboto', -apple-system, helvetica, sans-serif;
+}
+
+.iromi {
+  overflow: hidden;
+  padding: 8px;
+}
+
+
+.header {
+  width: 100%;
+  height: 60px;
+  padding: 0 10px;
+  position: fixed;
+  background-color: white;
+  top: 0;
+  display: flex;
+
+  h2 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin: 0;
+    font-weight: 700;
+  }
+}
+
+.heading__colour {
+  width: 200px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+}
+
+.headings__prominence {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  align-items: center;
+  padding: 0 1vw;
+  h2 {
+    width: 360px;
+  }
+}
+
+
+
+.colours {
+  margin-top: 50px;
+  padding: 10px;
+}
+
+
+.container {
+  overflow: hidden;
+  height: 100px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.col {
+  width: (1/3)*100%;
+  float: left;
+  text-align: center;
+  display: flex;
+}
+
+
+.colour__data {
+  width: 200px;
+  font-size: 12px;
+  padding: 0 12px;
+  line-height: 1.5em;
+
+  h6 {
+    display: inline-block;
+    width: 50%;
+    margin: 0;
+    font-size: 12px;
+    font-weight: normal;
+  }
+
+  &:after {
+    text-align: right;
+  }
+}
+
+.iromi__data {
+  flex-grow: 1;
+  padding: 0 1vw;
+  display: flex;
+  justify-content: space-around;
+}
+
+.prominence_col {
+  width: 360px;
+  padding: 0 1vw;
+  display: flex;
+  text-align: center;
+
+  h3 {
+    font-size: 10px;
+    font-weight: normal;
+    text-transform: uppercase;
+  }
+}
+
+.value {
+  width: (1/3)*100%;
+}
+
+
+
+
+
+@mixin fill-column($background) {
+  .light:after {
+    content: '' + round(lightness($background)) + '';
+  }
+  .hue:after {
+    content: '' + round(hue($background)) + '';
+  }
+  .sat:after {
+    content: '' + round(saturation($background)) + '';
+  }
+}
+
+
+
+
+
+$degree_increment: $tile_degree_increment;
+$lightness_increment: $tile_lightness_increment;
+
+$degree_current: 0;
+$lightness_current: 100 - $lightness_increment;
+
+$lightness_steps: '';
+
+@if $lightness_increment <= 20 {
+  $lightness_steps: floor((100/$lightness_increment) - 1);
+} @else {
+  $lightness_steps: floor((100/$lightness_increment));
+}
+
+$total_tiles: (360 / $degree_increment) * $lightness_steps;
+
+$current_bg: change-color(blue, $hue: $degree_current);
+
+
+
+
+
+
+
+@for $tile from 1 through $total_tiles {
+
+  $current_bg: change-color($current_bg, $lightness: $lightness_current);
+
+  .tile#{$tile} {
+    background: $current_bg;
+
+    .colour__data {
+      color: iromi_type($current_bg);
+
+      .hue {
+        &:after {
+          content: '' + round(hue($current_bg)) + '';
+        }
+      }
+      .sat {
+        &:after {
+          content: '' + round(saturation($current_bg)) + '';
+        }
+      }
+      .light {
+        &:after {
+          content: '' + round(lightness($current_bg)) + '';
+        }
+      }
+      .lum {
+        &:after {
+          content: '' + luminance($current_bg) + '';
+        }
+      }
+    }
+
+
+    .less {
+      color: iromi_type($current_bg, 'less');
+
+      .contrast:after {
+        content: '' + contrast(iromi_type($current_bg, 'less'), $current_bg) + '';
+      }
+
+      .sat:after {
+        content: '' + round(saturation(iromi_type($current_bg, 'less'))) + '';
+      }
+
+      .light:after {
+        content: '' + round(lightness(iromi_type($current_bg, 'less'))) + '';
+      }
+      .alpha:after {
+        content: '' + alpha(iromi_type($current_bg, 'less')) + '';
+      }
+    }
+
+    .default {
+      color: iromi_type($current_bg);
+
+      .contrast:after {
+        content: '' + contrast(iromi_type($current_bg), $current_bg) + '';
+      }
+
+      .sat:after {
+        content: '' + round(saturation(iromi_type($current_bg))) + '';
+      }
+
+      .light:after {
+        content: '' + round(lightness(iromi_type($current_bg))) + '';
+      }
+      .alpha:after {
+        content: '' + alpha(iromi_type($current_bg)) + '';
+      }
+    }
+
+    .more {
+      color: iromi_type($current_bg, 'more');
+
+      .contrast:after {
+        content: '' + contrast(iromi_type($current_bg, 'more'), $current_bg) + '';
+      }
+
+      .sat:after {
+        content: '' + round(saturation(iromi_type($current_bg, 'more'))) + '';
+      }
+
+      .light:after {
+        content: '' + round(lightness(iromi_type($current_bg, 'more'))) + '';
+      }
+      .alpha:after {
+        content: '' + alpha(iromi_type($current_bg, 'more')) + '';
+      }
+    }
+
+  }
+
+  $lightness_current: $lightness_current - $tile_lightness_increment;
+
+  @if $lightness_current <= 0 {
+    // set them back to their defaults
+    $lightness_current: 100 - $lightness_increment;
+    $degree_current: $degree_current + $degree_increment;
+    // reset the background with a new colour
+    //$current_bg: lightness( hue(orange, $degree_current), 100%)
+    $current_bg: change-color($current_bg, $hue: $degree_current);
+  }
+
+
+
+}
