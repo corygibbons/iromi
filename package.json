@@ -1,7 +1,7 @@
 {
   "name": "iromi",
-  "version": "0.0.1",
-  "description": "Collection of Sass colour functions that handle the heavy lifting for selecting beautiful and accessible colours",
+  "version": "0.0.2",
+  "description": "WIP collection of Sass colour functions that handle the heavy lifting for selecting beautiful and accessible colours",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/corygibbons/iromi.git"
