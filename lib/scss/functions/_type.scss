@@ -15,9 +15,12 @@
       $adjusted_lightness: scale-color($background, $lightness: -70%);
     }
 
-    $usable_value: 100 - (luminance($background) * 100);
-
-    @return change-color($adjusted_lightness, $saturation: $usable_value);
+    @if saturation($background) > 1 {
+      $usable_value: 100 - (luminance($background) * 100);
+      @return change-color($adjusted_lightness, $saturation: $usable_value);
+    } @else {
+      @return $adjusted_lightness;
+    }
 
 
   // Lighten
