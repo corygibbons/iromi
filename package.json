@@ -1,6 +1,6 @@
 {
   "name": "iromi",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "WIP collection of Sass colour functions that handle the heavy lifting for selecting beautiful and accessible colours",
   "repository": {
     "type": "git",
