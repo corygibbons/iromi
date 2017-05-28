@@ -1,20 +1,39 @@
 {
   "name": "iromi",
-  "version": "0.0.3",
-  "description": "WIP collection of Sass colour functions that handle the heavy lifting for selecting beautiful and accessible colours",
+  "version": "1.0.0",
+  "description": "Iromi is a collection of JS colour functions that automate the selection of beautiful, accessible colours.",
+  "main": "dist/iromi.js",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "ava --verbose",
+    "prepublish": "npm run build"
+  },
+  "author": "Cory Gibbons <hello@corygibbons.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/corygibbons/iromi.git"
   },
-  "author": "Cory Gibbons <hello@corygibbons.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/corygibbons/iro/issues"
+    "url": "https://github.com/corygibbons/iromi/issues"
   },
-  "keywords": [
-    "sass",
-    "color",
-    "colour",
-    "typography"
-  ]
+  "dependencies": {
+    "tinycolor2": "^1.4.1"
+  },
+  "devDependencies": {
+    "ava": "^0.19.1",
+    "babel": "^6.23.0",
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "rollup": "^0.41.6"
+  },
+  "ava": {
+    "files": [
+      "test.js"
+    ],
+    "babel": "inherit",
+    "require": [
+      "babel-register"
+    ]
+  }
 }
