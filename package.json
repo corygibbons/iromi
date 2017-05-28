@@ -1,12 +1,15 @@
 {
   "name": "iromi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Iromi is a collection of JS colour functions that automate the selection of beautiful, accessible colours.",
   "main": "dist/iromi.js",
   "scripts": {
-    "build": "rollup -c",
-    "test": "ava --verbose",
-    "prepublish": "npm run build"
+    "prebuild": "eslint src test",
+    "build": "rollup -c --environment BUILD:production",
+    "watch": "rollup -c -w",
+    "pretest": "rollup -c",
+    "test": "mocha",
+    "prepublish": "npm test"
   },
   "author": "Cory Gibbons <hello@corygibbons.com>",
   "repository": {
@@ -21,19 +24,19 @@
     "tinycolor2": "^1.4.1"
   },
   "devDependencies": {
-    "ava": "^0.19.1",
     "babel": "^6.23.0",
     "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-es2015": "^6.24.1",
-    "rollup": "^0.41.6"
-  },
-  "ava": {
-    "files": [
-      "test.js"
-    ],
-    "babel": "inherit",
-    "require": [
-      "babel-register"
-    ]
+    "babelrc-rollup": "^3.0.0",
+    "codecov": "^2.2.0",
+    "eslint": "^3.19.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.4.2",
+    "rollup": "^0.41.6",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-istanbul": "^1.1.0",
+    "rollup-watch": "^3.2.2"
   }
 }

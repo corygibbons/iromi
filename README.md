@@ -2,6 +2,7 @@
 Iromi is a collection of JS colour functions that automate the selection of beautiful, accessible colours.
 
 [![npm version](https://badge.fury.io/js/iromi.svg)](https://badge.fury.io/js/iromi)
+[![Build Status](https://travis-ci.org/corygibbons/iromi.svg?branch=master)](https://travis-ci.org/corygibbons/iromi)
 
 ## Install
 ```

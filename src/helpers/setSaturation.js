@@ -1,14 +1,13 @@
 import tinycolor from 'tinycolor2';
+import modulate from './modulate';
 
 const setSaturation = function (background, color) {
 
   const hsl = background.toHsl();
-  const saturation = hsl.s * 100;
-  const typeSaturation = color.toHsl().s * 100;
 
-  if (hsl.l * 100 < 30 ) {
+  if (hsl.l * 100 < 30 && hsl.s > 0.25 ) {
     let newHsl = color.toHsl();
-    newHsl.s = 0.25;
+    newHsl.s = modulate(0.1, [0, hsl.s], [0,0.20], true);
     color = tinycolor(newHsl).lighten(15);
   }
 

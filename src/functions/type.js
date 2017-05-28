@@ -1,7 +1,7 @@
 import tinycolor from 'tinycolor2';
-import decideDirection from './helpers/decideDirection';
-import meetCompliance from './helpers/meetCompliance';
-import setSaturation from './helpers/setSaturation';
+import decideDirection from '../helpers/decideDirection';
+import meetCompliance from '../helpers/meetCompliance';
+import setSaturation from '../helpers/setSaturation';
 
 const type = function (background = '#ffffff', contrast = 'default', size = 'small') {
 
@@ -37,7 +37,6 @@ const type = function (background = '#ffffff', contrast = 'default', size = 'sma
     case 'more':
       _color = meetCompliance(_color, 'AAA', size, compliantIs);
       break;
-
   }
 
   _color = setSaturation(_background, _color);

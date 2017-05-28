@@ -1,4 +1,4 @@
-import type from './src/type'
+import type from './functions/type'
 
 const iromi = {
   type: type

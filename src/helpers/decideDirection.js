@@ -25,6 +25,7 @@ const decideDirection = function (color) {
         safety++;
       }
       if (!readable) {
+        safety = 0;
         while (!readable && safety < options.maxIterations) {
           colorText = colorText.darken(options.increment);
           readable = tinycolor.isReadable(colorText, colorBackground, {level: 'AAA', size: 'small'});
@@ -40,6 +41,7 @@ const decideDirection = function (color) {
       safety++;
     }
     if (!readable) {
+      safety = 0;
       while (!readable && safety < options.maxIterations) {
         colorText = colorText.lighten(options.increment);
         readable = tinycolor.isReadable(colorText, colorBackground, {level: 'AAA', size: 'small'});
