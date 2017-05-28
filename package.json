@@ -1,5 +1,5 @@
 {
-  "name": "iromi.js",
+  "name": "iromi",
   "version": "1.0.0",
   "description": "Iromi is a collection of JS colour functions that automate the selection of beautiful, accessible colours.",
   "main": "dist/iromi.js",
