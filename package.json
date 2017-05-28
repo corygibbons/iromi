@@ -9,7 +9,7 @@
     "watch": "rollup -c -w",
     "pretest": "rollup -c",
     "test": "mocha",
-    "prepublish": "npm test"
+    "prepublish": "npm run build"
   },
   "author": "Cory Gibbons <hello@corygibbons.com>",
   "repository": {
