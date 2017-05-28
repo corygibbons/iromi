@@ -3,6 +3,7 @@ Iromi is a collection of JS colour functions that automate the selection of beau
 
 [![npm version](https://badge.fury.io/js/iromi.svg)](https://badge.fury.io/js/iromi)
 [![Build Status](https://travis-ci.org/corygibbons/iromi.svg?branch=master)](https://travis-ci.org/corygibbons/iromi)
+[![codecov](https://codecov.io/gh/corygibbons/iromi/branch/master/graph/badge.svg)](https://codecov.io/gh/corygibbons/iromi)
 
 ## Install
 ```
