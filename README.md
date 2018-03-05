@@ -1,26 +1,29 @@
 # Iromi
+
 Iromi is a collection of JS colour functions that automate the selection of beautiful, accessible colours.
 
-[![npm version](https://badge.fury.io/js/iromi.svg)](https://badge.fury.io/js/iromi)
-[![Build Status](https://travis-ci.org/corygibbons/iromi.svg?branch=master)](https://travis-ci.org/corygibbons/iromi)
-[![codecov](https://codecov.io/gh/corygibbons/iromi/branch/master/graph/badge.svg)](https://codecov.io/gh/corygibbons/iromi)
+[![npm version](https://img.shields.io/npm/v/iromi.svg?style=flat-square)](https://www.npmjs.com/package/iromi)
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 ## Install
+
 ```
 $ npm install iromi --save
 ```
+
 ## Functions
 
 #### `iromi.type(backgroundColor, contrast, size)`
-- **`backgroundColor`**:
-  - Valid colour string (`#ffffff`, `rgb(0,0,0)`)
-- **`contrast`**:
-  - `'default'`: AA compliant
-  - `'more'`: AAA compliant
-  - `'less`: Not compliant
-- **`size`**:
-  - `'small'` 
-  - `'large'`
+
+* **`backgroundColor`**:
+  * Valid colour string (`#ffffff`, `rgb(0,0,0)`)
+* **`contrast`**:
+  * `'default'`: AA compliant
+  * `'more'`: AAA compliant
+  * `'less`: Not compliant
+* **`size`**:
+  * `'small'`
+  * `'large'`
 
 ```js
 const iromi = require('iromi');
@@ -36,9 +39,6 @@ textOnBlackBg = iromi.type('#000000');
 textOnWhiteBgAAA = iromi.type('#ffffff', 'more');
 
 // Since Iromi returns a tinycolor object it's easy to choose your format
-textOnWhiteBg.toHexString() // '#727272'
-textOnWhiteBg.toRgbString() // 'rgb(115, 115, 115)'
+textOnWhiteBg.toHexString(); // '#727272'
+textOnWhiteBg.toRgbString(); // 'rgb(115, 115, 115)'
 ```
-
-## PostCSS
-_Soon_.

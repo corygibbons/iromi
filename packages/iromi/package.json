@@ -1,0 +1,30 @@
+{
+  "name": "iromi",
+  "version": "1.0.1",
+  "description":
+    "Iromi is a collection of JS colour functions that automate the selection of beautiful, accessible colours.",
+  "author": "Cory Gibbons",
+  "repository": "https://github.com/corygibbons/iromi",
+  "main": "dist/index.js",
+  "keywords": ["color", "colour", "a11y", "wcag"],
+  "license": "MIT",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "ava"
+  },
+  "dependencies": {
+    "tinycolor2": "^1.4.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-beta.40",
+    "@babel/preset-env": "^7.0.0-beta.40",
+    "@babel/register": "^7.0.0-beta.40",
+    "ava": "^0.25.0",
+    "babelrc-rollup": "^3.0.0",
+    "rollup": "^0.56.3",
+    "rollup-plugin-babel": "^4.0.0-beta.2"
+  },
+  "ava": {
+    "require": ["@babel/register"]
+  }
+}
