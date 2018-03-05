@@ -1,0 +1,30 @@
+{
+  "name": "shift-color",
+  "version": "0.0.1",
+  "description": "Shift color to fit within specific HSL bounds",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel index.js --out-dir dist",
+    "start": "x0 dev App.js",
+    "test": "ava"
+  },
+  "keywords": ["color", "mutate", "hsl"],
+  "author": "Cory Gibbons",
+  "repository": {
+    "url": "http://github.com/corygibbons/iromi"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "in-range": "^1.0.0",
+    "scale-number-range": "^1.0.3",
+    "tinycolor2": "^1.4.1"
+  },
+  "devDependencies": {
+    "@compositor/x0": "^4.0.1",
+    "ava": "^0.25.0",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-env": "^1.6.1",
+    "react-color-chart": "^0.0.1"
+  }
+}
