@@ -4,7 +4,7 @@ import babelrc from 'babelrc-rollup';
 export default {
   input: 'index.js',
   plugins: [babel(babelrc({ addExternalHelpersPlugin: false }))],
-  external: ['tinycolor2'],
+  external: ['scale-number-range', 'tinycolor2'],
   output: [
     {
       file: 'dist/index.js',

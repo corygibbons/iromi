@@ -1,7 +1,7 @@
 import test from 'ava';
 import tiny from 'tinycolor2';
 
-import iromi from '../index';
+import { fontColor } from '../';
 
 const colors = {
   // colors that should be able to meet AAA compliance
@@ -26,11 +26,7 @@ test('small text should meet WCAG AA standards', t => {
 
   for (let color of colors.aaa.concat(colors.aa)) {
     t.true(
-      tiny.isReadable(
-        iromi.type(color, 'default', options.size),
-        color,
-        options
-      )
+      tiny.isReadable(fontColor(color, 'default', options.size), color, options)
     );
   }
 });
@@ -40,11 +36,7 @@ test('large text should meet WCAG AA standards', t => {
 
   for (let color of colors.aaa.concat(colors.aa)) {
     t.true(
-      tiny.isReadable(
-        iromi.type(color, 'default', options.size),
-        color,
-        options
-      )
+      tiny.isReadable(fontColor(color, 'default', options.size), color, options)
     );
   }
 });
@@ -54,7 +46,7 @@ test('small text should meet WCAG AAA standards', t => {
 
   for (let color of colors.aaa) {
     t.true(
-      tiny.isReadable(iromi.type(color, 'more', options.size), color, options)
+      tiny.isReadable(fontColor(color, 'more', options.size), color, options)
     );
   }
 });
@@ -64,7 +56,7 @@ test('large text should meet WCAG AAA standards', t => {
 
   for (let color of colors.aaa) {
     t.true(
-      tiny.isReadable(iromi.type(color, 'more', options.size), color, options)
+      tiny.isReadable(fontColor(color, 'more', options.size), color, options)
     );
   }
 });

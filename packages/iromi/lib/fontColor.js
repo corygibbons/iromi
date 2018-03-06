@@ -1,10 +1,11 @@
 import tinycolor from 'tinycolor2';
-import decideDirection from '../helpers/decideDirection';
-import meetCompliance from '../helpers/meetCompliance';
-import setSaturation from '../helpers/setSaturation';
+import { decideDirection, meetCompliance, setSaturation } from '../utils/index';
 
-const type = function (background = '#ffffff', contrast = 'default', size = 'small') {
-
+const type = function(
+  background = '#ffffff',
+  contrast = 'default',
+  size = 'small'
+) {
   let _color = tinycolor(background);
   let _background = tinycolor(background);
 
@@ -23,7 +24,7 @@ const type = function (background = '#ffffff', contrast = 'default', size = 'sma
   switch (contrast) {
     case 'less':
       _color = meetCompliance(_color, 'AA', size, compliantIs);
-      if ( _color.direction === 'dark' ) {
+      if (_color.direction === 'dark') {
         _color = _color.lighten(15);
       } else {
         _color = _color.darken(15);
@@ -41,7 +42,7 @@ const type = function (background = '#ffffff', contrast = 'default', size = 'sma
 
   _color = setSaturation(_background, _color);
 
-  return _color;
-}
+  return _color.toRgbString();
+};
 
 export default type;
