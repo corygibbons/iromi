@@ -1,4 +1,5 @@
 import test from 'ava';
+import chroma from 'chroma-js';
 import tiny from 'tinycolor2';
 
 import { fontColor } from '../';
@@ -59,4 +60,19 @@ test('large text should meet WCAG AAA standards', t => {
       tiny.isReadable(fontColor(color, 'more', options.size), color, options)
     );
   }
+});
+
+test('WCAG AA complaince snapshots', t => {
+  const colors = chroma.scale('Spectral').colors(50);
+  const tree = colors.map((color, i) => {
+    const ratio = tiny.readability(color, fontColor(color));
+    return {
+      index: i,
+      input: color,
+      output: fontColor(color),
+      ratio: ratio,
+      pass: tiny.isReadable(color, fontColor, { level: 'AA', size: 'small' })
+    };
+  });
+  t.snapshot(tree);
 });
